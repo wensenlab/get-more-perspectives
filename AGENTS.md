@@ -1,14 +1,14 @@
-# AGENTS.md — get-more-perspectives-skill
+# AGENTS.md — get-more-perspectives
 
 ## Purpose
-`get-more-perspectives-skill` assembles a virtual advisory board composed of diverse expert personas (Operator, Skeptic, Visionary, Customer Advocate, Quant) to evaluate major decisions, test assumptions, uncover blindspots, and synthesize conflicting viewpoints into actionable next steps.
+`get-more-perspectives` assembles a virtual advisory board composed of diverse expert personas (Operator, Skeptic, Visionary, Customer Advocate, Quant) to evaluate major decisions, test assumptions, uncover blindspots, and synthesize conflicting viewpoints into actionable next steps.
 
 ## Activation Triggers
 Activate when users:
 - Face tough dilemmas or strategic decisions (career moves, tech stack rewrites, pricing adjustments, startup pivots).
 - Ask "what would experts think?", "give me multiple angles", or "find blindspots in this plan".
 - Express hesitation between option A and option B.
-- Invoke `/get-more-perspectives` or `/get-more-perspectives-skill`.
+- Invoke `/get-more-perspectives`.
 
 ## Core Advisor Personas
 - **The Operator (执行者)**: Implementation feasibility, bottlenecks, timeline, and concrete first steps.

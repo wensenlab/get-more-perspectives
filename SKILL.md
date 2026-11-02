@@ -11,7 +11,7 @@ metadata:
   updated: 2026-11-02
 ---
 
-# 🏛️ get-more-perspectives-skill — 虚拟顾问团多视角决策洞察 (WenSenLab · 文森策)
+# 🏛️ get-more-perspectives — 虚拟顾问团多视角决策洞察 (WenSenLab · 文森策)
 
 面对关键抉择时，人最容易陷入两个误区：要么是一个人闷头想，陷在自己的思维盲区里反复内耗；要么是身边的朋友习惯性客气，谁都不好意思泼冷水、说重话。
 

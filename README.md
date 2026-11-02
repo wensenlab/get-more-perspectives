@@ -1,11 +1,11 @@
-# 🏛️ get-more-perspectives-skill — 虚拟顾问团多视角决策洞察
+# 🏛️ get-more-perspectives — 虚拟顾问团多视角决策洞察
 
 > **WenSenLab · 文森策 出品**
 > 
 > 在做出重大决定前，召集 3-5 位拥有鲜明立场的虚拟专家顾问，从落地执行、风险风控、长远格局、用户感知和商业算账 5 个维度独立审视方案，帮你提前排雷、找准机会，交付带有低成本探针实验与不可逾越止损红线的决断方案。
 
 <p align="center">
-  <img src="assets/get-more-perspectives-card-blue-3x4-20261102.png" alt="get-more-perspectives-skill 视觉介绍卡片" width="760" />
+  <img src="assets/get-more-perspectives-card-blue-3x4-20261102.png" alt="get-more-perspectives 视觉介绍卡片" width="760" />
 </p>
 
 ---
@@ -16,7 +16,7 @@
 1. **一个人的思维盲区**：自己想方案容易陷入“证实偏见”，只看对自己有利的理由，忽视了致命隐患；
 2. **身边朋友的一团和气**：周围人往往不好意思当面泼冷水、说重话，导致潜在风险被掩盖。
 
-`get-more-perspectives-skill` 为你模拟由资深专家组成的专属智囊团：
+`get-more-perspectives` 为你模拟由资深专家组成的专属智囊团：
 - ⚙️ **执行者 (The Operator)**：评估落地可行性、排期卡点与第一步具体动作。
 - 🛡️ **质疑者 (The Skeptic / 首席杠精)**：进行事前失败推演 (Pre-Mortem 逆向排雷)，死磕隐性假设与最坏情况。
 - 🔭 **远见者 (The Visionary)**：评估 3-5 年战略复利、非对称机会与时代技术趋势。
@@ -77,7 +77,7 @@
 ## 📂 目录结构说明
 
 ```
-get-more-perspectives-skill/
+get-more-perspectives/
 ├── SKILL.md                          # 核心技能定义与 5 位专家调度工作流 (自包含标准版)
 ├── README.md                         # 项目使用说明与平台部署指南
 ├── AGENTS.md                         # 跨平台 Agent 协作契约
