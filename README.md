@@ -5,7 +5,7 @@
 > 在做出重大决定前，召集 3-5 位拥有鲜明立场的虚拟专家顾问，从落地执行、风险风控、长远格局、用户感知和商业算账 5 个维度独立审视方案，帮你提前排雷、找准机会，交付带有低成本探针实验与不可逾越止损红线的决断方案。
 
 <p align="center">
-  <img src="assets/get-more-perspectives-card-editorial-20260826.png" alt="get-more-perspectives-skill 视觉介绍卡片" width="100%" />
+  <img src="assets/get-more-perspectives-card-blue-3x4-20261102.png" alt="get-more-perspectives-skill 视觉介绍卡片" width="760" />
 </p>
 
 ---
@@ -88,7 +88,7 @@ get-more-perspectives-skill/
 │   └── domain-recipes.md             # 职场、技术、定价、创业等 4 大高频场景决策配方
 └── assets/
     ├── perspectives-template.md      # 标准多视角输出 Markdown 模版
-    └── get-more-perspectives-card-editorial-20260826.png # 视觉卡片
+    └── get-more-perspectives-card-blue-3x4-20261102.png # 3:4 蓝调视觉架构卡片
 ```
 
 ---

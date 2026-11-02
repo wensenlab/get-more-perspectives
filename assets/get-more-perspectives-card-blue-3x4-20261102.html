@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>get-more-perspectives-skill — 虚拟顾问团多视角决策洞察</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&family=JetBrains+Mono:wght@600;700;800&family=Noto+Sans+SC:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 1200px;
+      height: 1600px;
+      overflow: hidden;
+      background: #FFFFFF;
+      font-family: 'Plus Jakarta Sans', 'Inter', 'Noto Sans SC', sans-serif;
+      color: #0B2B59;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .card-canvas {
+      width: 1200px;
+      height: 1600px;
+      background: #FFFFFF;
+      position: relative;
+      overflow: hidden;
+      padding: 34px 32px 24px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .top-accent-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 10px;
+      background: linear-gradient(90deg, #1664D9 0%, #2563EB 35%, #60A5FA 70%, #93C5FD 100%);
+    }
+
+    /* 1. Header Zone */
+    .header-zone {
+      margin-bottom: 2px;
+    }
+
+    .badge-strip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .badge-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 18px;
+      border-radius: 9px;
+      font-size: 16.5px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+    }
+
+    .badge-primary {
+      background: #E5F2FF;
+      color: #1664D9;
+      border: 1.5px solid #CCE3FF;
+    }
+
+    .badge-brand {
+      background: #F3F8FF;
+      color: #0B2B59;
+      border: 1.5px solid #CCE3FF;
+    }
+
+    .slash-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 18.5px;
+      font-weight: 800;
+      color: #1664D9;
+      background: #F3F8FF;
+      padding: 7px 22px;
+      border-radius: 9px;
+      border: 1.5px dashed #B3D7FF;
+      letter-spacing: 0.02em;
+    }
+
+    .main-title {
+      font-size: 54.5px;
+      font-weight: 900;
+      color: #0B2B59;
+      line-height: 1.18;
+      letter-spacing: -0.028em;
+      margin-bottom: 6px;
+      white-space: nowrap;
+    }
+
+    .title-highlight {
+      background: linear-gradient(135deg, #1664D9 0%, #2563EB 55%, #3B82F6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .sub-title {
+      font-size: 25.5px;
+      color: #225188;
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: -0.015em;
+    }
+
+    /* Section Label */
+    .section-headline {
+      font-size: 21.5px;
+      font-weight: 900;
+      color: #1664D9;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .section-headline::after {
+      content: "";
+      flex: 1;
+      height: 1.5px;
+      background: #CCE3FF;
+    }
+
+    /* 2. Core 5 Advisors Stack */
+    .advisors-zone {
+      margin-bottom: 4px;
+    }
+
+    .advisors-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .advisor-row {
+      background: #F3F8FF;
+      border: 1.5px solid #CCE3FF;
+      border-radius: 16px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 3px 8px rgba(11, 43, 89, 0.03);
+    }
+
+    .advisor-left {
+      width: 224px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      border-right: 1.5px solid #CCE3FF;
+      padding-right: 14px;
+    }
+
+    .advisor-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: #FFFFFF;
+      border: 1.5px solid #CCE3FF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(11, 43, 89, 0.04);
+    }
+
+    .advisor-title-box {
+      white-space: nowrap;
+    }
+
+    .advisor-title-box h3 {
+      font-size: 26.5px;
+      font-weight: 900;
+      color: #0B2B59;
+      line-height: 1.15;
+      margin-bottom: 3px;
+      letter-spacing: -0.015em;
+      white-space: nowrap;
+    }
+
+    .advisor-title-box span {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #225188;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .advisor-right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      overflow: hidden;
+    }
+
+    .advisor-quote {
+      font-size: 24.5px;
+      color: #0B2B59;
+      font-weight: 900;
+      line-height: 1.32;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+
+    .quote-tag {
+      font-size: 14px;
+      font-weight: 900;
+      color: #1664D9;
+      background: #E5F2FF;
+      padding: 3px 9px;
+      border-radius: 6px;
+      border: 1.5px solid #B3D7FF;
+      flex-shrink: 0;
+      letter-spacing: 0.02em;
+    }
+
+    .advisor-focus {
+      font-size: 18.5px;
+      line-height: 1.35;
+      color: #225188;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+
+    .advisor-focus strong {
+      color: #1664D9;
+      font-weight: 900;
+    }
+
+    /* 3. Framework Zone */
+    .framework-zone {
+      margin-bottom: 4px;
+    }
+
+    .workflow-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .step-box {
+      border-radius: 16px;
+      padding: 18px 16px;
+      display: flex;
+      flex-direction: column;
+      border: 1.5px solid #CCE3FF;
+      min-height: 172px;
+      justify-content: space-between;
+      box-shadow: 0 2px 6px rgba(11, 43, 89, 0.02);
+    }
+
+    .step-box-1 { background: #F3F8FF; }
+    .step-box-2 { background: #E5F2FF; }
+    .step-box-3 { background: #D0E7FF; }
+    .step-box-4 { background: #B3D7FF; }
+
+    .step-top {
+      margin-bottom: 6px;
+    }
+
+    .step-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 15px;
+      font-weight: 900;
+      color: #1664D9;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+
+    .step-title {
+      font-size: 28px;
+      font-weight: 900;
+      color: #0B2B59;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    .step-desc {
+      font-size: 17.5px;
+      line-height: 1.45;
+      color: #225188;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+    }
+
+    .step-desc p {
+      margin-bottom: 2px;
+      white-space: nowrap;
+    }
+
+    .step-desc p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 4. Unified Light-Mode Execution Card */
+    .terminal-box {
+      background: #F8FAFD;
+      border-radius: 16px;
+      border: 1.5px solid #BED8FF;
+      box-shadow: 0 4px 16px rgba(22, 100, 217, 0.06);
+      overflow: hidden;
+      margin-bottom: 4px;
+    }
+
+    .terminal-header {
+      background: #EAF3FE;
+      padding: 11px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1.5px solid #D1E5FE;
+    }
+
+    .header-left-part {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .terminal-dots {
+      display: flex;
+      gap: 7px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .dot-red { background: #FF5F56; }
+    .dot-yellow { background: #FFBD2E; }
+    .dot-green { background: #27C93F; }
+
+    .terminal-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 15px;
+      color: #1E5199;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .header-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      font-weight: 800;
+      color: #1664D9;
+      background: #FFFFFF;
+      padding: 2px 10px;
+      border-radius: 6px;
+      border: 1px solid #C5DEFF;
+      letter-spacing: 0.04em;
+    }
+
+    .terminal-body {
+      padding: 20px 24px 17px 24px;
+      font-family: 'JetBrains Mono', monospace;
+      background: #FFFFFF;
+    }
+
+    .terminal-cmd {
+      font-size: 21px;
+      font-weight: 800;
+      color: #0B2B59;
+      line-height: 1.45;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+
+    .cmd-prompt {
+      color: #1664D9;
+      font-weight: 900;
+      margin-right: 8px;
+    }
+
+    .cmd-skill {
+      color: #1664D9;
+      font-weight: 900;
+    }
+
+    .cmd-query {
+      color: #0F3B77;
+    }
+
+    .terminal-output {
+      font-size: 18px;
+      line-height: 1.5;
+      color: #225188;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-bottom: 14px;
+    }
+
+    .out-line {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    .out-arrow {
+      color: #1664D9;
+      font-weight: 900;
+    }
+
+    .out-text {
+      color: #225188;
+      font-weight: 600;
+    }
+
+    .out-hl {
+      color: #0B2B59;
+      font-weight: 800;
+    }
+
+    .out-badge {
+      background: #E5F2FF;
+      color: #1664D9;
+      border: 1px solid #BBD8FE;
+      padding: 2px 9px;
+      border-radius: 5px;
+      font-size: 15px;
+      font-weight: 800;
+      margin: 0 4px;
+    }
+
+    .terminal-footer-strip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1.5px solid #E5F0FD;
+      padding-top: 12px;
+    }
+
+    .supported-label {
+      font-size: 14.5px;
+      font-weight: 900;
+      color: #1664D9;
+      letter-spacing: 0.08em;
+    }
+
+    .pills-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tool-pill {
+      background: #F3F8FF;
+      color: #0B2B59;
+      border: 1.5px solid #CCE3FF;
+      padding: 4px 13px;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      box-shadow: 0 1px 3px rgba(11, 43, 89, 0.03);
+    }
+
+    /* 5. Footer Zone */
+    .footer-zone {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1.5px solid #CCE3FF;
+      padding-top: 14px;
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 18.5px;
+      font-weight: 700;
+      color: #225188;
+      letter-spacing: -0.01em;
+    }
+
+    .footer-icon {
+      font-size: 20px;
+    }
+
+    .footer-repo {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 800;
+      color: #0B2B59;
+    }
+
+    .footer-right {
+      font-size: 20px;
+      font-weight: 900;
+      color: #0B2B59;
+      letter-spacing: -0.01em;
+    }
+  </style>
+</head>
+<body>
+  <div class="card-canvas">
+    <div class="top-accent-bar"></div>
+
+    <!-- 1. Header Zone -->
+    <div class="header-zone">
+      <div class="badge-strip">
+        <div class="badge-left">
+          <span class="badge badge-primary">AGENT SKILL · DECISION INTELLIGENCE</span>
+          <span class="badge badge-brand">WenSenLab 出品</span>
+        </div>
+        <span class="slash-pill">/get-more-perspectives</span>
+      </div>
+
+      <h1 class="main-title">做重大决定前，让 <span class="title-highlight">5 位虚拟专家</span> 先帮你全面排雷</h1>
+      <p class="sub-title">拒绝盲目自嗨与一团和气 · 独立交卷 · 观点张力 · 72h 探针 · 严格止损红线</p>
+    </div>
+
+    <!-- 2. Core 5 Advisors Stack -->
+    <div class="advisors-zone">
+      <div class="section-headline">5 位虚拟专家专属顾问团 · 各自独立审视，拒绝一团和气</div>
+      <div class="advisors-stack">
+
+        <!-- 1. 执行者 -->
+        <div class="advisor-row">
+          <div class="advisor-left">
+            <div class="advisor-icon">⚙️</div>
+            <div class="advisor-title-box">
+              <h3>执行者</h3>
+              <span>The Operator</span>
+            </div>
+          </div>
+          <div class="advisor-right">
+            <div class="advisor-quote">
+              <span class="quote-tag">必问</span>
+              想法很性感，但到底谁来干？下周第一步做什么？最容易在哪卡死？
+            </div>
+            <div class="advisor-focus">
+              <strong>审视维度：</strong>落地可行性 · 排期卡点 · 资源带宽配比 · 严防脱离实际的空洞大饼
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. 质疑者 -->
+        <div class="advisor-row">
+          <div class="advisor-left">
+            <div class="advisor-icon">🛡️</div>
+            <div class="advisor-title-box">
+              <h3>质疑者</h3>
+              <span>The Skeptic</span>
+            </div>
+          </div>
+          <div class="advisor-right">
+            <div class="advisor-quote">
+              <span class="quote-tag">必问</span>
+              假设 6 个月后项目彻底搞砸，复盘报告写的最主要死因会是什么？
+            </div>
+            <div class="advisor-focus">
+              <strong>审视维度：</strong>事前失败推演 (Pre-Mortem) · 拷问隐性假设 · 严苛挑刺与最坏预案
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. 远见者 -->
+        <div class="advisor-row">
+          <div class="advisor-left">
+            <div class="advisor-icon">🔭</div>
+            <div class="advisor-title-box">
+              <h3>远见者</h3>
+              <span>The Visionary</span>
+            </div>
+          </div>
+          <div class="advisor-right">
+            <div class="advisor-quote">
+              <span class="quote-tag">必问</span>
+              做这件事是在积累长期资产，还是在消耗存量？外部进化会颠覆它吗？
+            </div>
+            <div class="advisor-focus">
+              <strong>审视维度：</strong>3–5 年战略复利 · 非对称上行机会 · 范式演进 · 警惕短期自嗨内耗
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. 客户代言人 -->
+        <div class="advisor-row">
+          <div class="advisor-left">
+            <div class="advisor-icon">👤</div>
+            <div class="advisor-title-box">
+              <h3>客户代言人</h3>
+              <span>Customer Voice</span>
+            </div>
+          </div>
+          <div class="advisor-right">
+            <div class="advisor-quote">
+              <span class="quote-tag">必问</span>
+              用户真的愿意为这个掏钱或改变习惯吗？还是纯属我们自己在自嗨？
+            </div>
+            <div class="advisor-focus">
+              <strong>审视维度：</strong>坐在最终用户椅子上 · 捍卫真实心智 · 信任账户与心理门槛
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. 财务专家 -->
+        <div class="advisor-row">
+          <div class="advisor-left">
+            <div class="advisor-icon">📊</div>
+            <div class="advisor-title-box">
+              <h3>财务专家</h3>
+              <span>The Quant</span>
+            </div>
+          </div>
+          <div class="advisor-right">
+            <div class="advisor-quote">
+              <span class="quote-tag">必问</span>
+              把隐性人力全折算进去到底赚不赚钱？同样的精力投在别处会不会更赚？
+            </div>
+            <div class="advisor-focus">
+              <strong>审视维度：</strong>真实投入产出比 (ROI) · 现金流安全底线 · 隐性机会成本与商业真账
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 3. Framework Zone -->
+    <div class="framework-zone">
+      <div class="section-headline">四步决策收敛机制 · 4-STEP DECISION SYNTHESIS FRAMEWORK</div>
+      <div class="workflow-steps">
+
+        <div class="step-box step-box-1">
+          <div class="step-top">
+            <div class="step-num">STEP 01</div>
+            <div class="step-title">可逆性判定</div>
+          </div>
+          <div class="step-desc">
+            <p>单向门不可逆深度排雷</p>
+            <p>双向门可逆小步快跑</p>
+          </div>
+        </div>
+
+        <div class="step-box step-box-2">
+          <div class="step-top">
+            <div class="step-num">STEP 02</div>
+            <div class="step-title">独立发表见解</div>
+          </div>
+          <div class="step-desc">
+            <p>第一轮严禁妥协与稀泥</p>
+            <p>各顾问亮出独立鲜明论据</p>
+          </div>
+        </div>
+
+        <div class="step-box step-box-3">
+          <div class="step-top">
+            <div class="step-num">STEP 03</div>
+            <div class="step-title">观点张力矩阵</div>
+          </div>
+          <div class="step-desc">
+            <p>提炼先发优势vs试错成本</p>
+            <p>暴露此前未察觉的隐蔽盲区</p>
+          </div>
+        </div>
+
+        <div class="step-box step-box-4">
+          <div class="step-top">
+            <div class="step-num">STEP 04</div>
+            <div class="step-title">实验与止损线</div>
+          </div>
+          <div class="step-desc">
+            <p>制定 72h 探针切片验证实验</p>
+            <p>设立不可逾越的放弃回滚红线</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 4. Unified Light-Mode Execution Card -->
+    <div class="terminal-box">
+      <div class="terminal-header">
+        <div class="header-left-part">
+          <div class="terminal-dots">
+            <div class="dot dot-red"></div>
+            <div class="dot dot-yellow"></div>
+            <div class="dot dot-green"></div>
+          </div>
+          <div class="terminal-title">bash — python3 scripts/consult_perspectives.py</div>
+        </div>
+        <div class="header-badge">LIVE DEMO</div>
+      </div>
+      <div class="terminal-body">
+        <div class="terminal-cmd">
+          <span class="cmd-prompt">$</span>
+          <span class="cmd-skill">/get-more-perspectives</span>
+          <span class="cmd-query">"拿到两份 Offer: 外企架构师 vs AI 初创团队早期成员，怎么选?"</span>
+        </div>
+        <div class="terminal-output">
+          <div class="out-line">
+            <span class="out-arrow">&gt;</span>
+            <span class="out-text">识别决策属性:</span>
+            <span class="out-badge">双向门可逆实验 (Type 2)</span>
+            <span class="out-text">| 调度:</span>
+            <span class="out-hl">算账专家 · 远见者 · 质疑者 · 执行者</span>
+          </div>
+          <div class="out-line">
+            <span class="out-arrow">&gt;</span>
+            <span class="out-text">交付综合方案:</span>
+            <span class="out-hl">多视角独立见解 + 本质张力矩阵 + 72h 探针切片 + 止损红线</span>
+          </div>
+        </div>
+        <div class="terminal-footer-strip">
+          <span class="supported-label">SUPPORTED ON</span>
+          <div class="pills-group">
+            <span class="tool-pill">Claude Code</span>
+            <span class="tool-pill">Codex CLI</span>
+            <span class="tool-pill">Antigravity</span>
+            <span class="tool-pill">Cursor</span>
+            <span class="tool-pill">Gemini</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Footer Zone -->
+    <div class="footer-zone">
+      <div class="footer-left">
+        <span class="footer-icon">🏛</span>
+        <span class="footer-repo">get-more-perspectives-skill</span>
+        <span>• 适用于职业跳槽、技术选型重构、产品定价与战略转型等重大决策</span>
+      </div>
+      <div class="footer-right">WenSenLab_ ©文森策</div>
+    </div>
+
+  </div>
+</body>
+</html>
