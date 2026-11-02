@@ -6,12 +6,12 @@ description: >-
 license: MIT
 metadata:
   author: 文森策
-  brand: VStart
+  brand: WenSenLab
   version: 2.0.0
   updated: 2026-09-03
 ---
 
-# 🏛️ get-more-perspectives-skill — 虚拟顾问团多视角决策洞察 (VStart · 文森策)
+# 🏛️ get-more-perspectives-skill — 虚拟顾问团多视角决策洞察 (WenSenLab · 文森策)
 
 面对关键抉择时，人最容易陷入两个误区：要么是一个人闷头想，陷在自己的思维盲区里反复内耗；要么是身边的朋友习惯性客气，谁都不好意思泼冷水、说重话。
 
@@ -171,7 +171,7 @@ AI 在输出决策报告时，遵循以下结构化模板呈现：
   - **撤退预案**：[达到红线时立刻执行的止损或回滚动作]
 
 ---
-*VStart_ ©文森策 · 助你穿透盲区，从容决断*
+*WenSenLab_ ©文森策 · 助你穿透盲区，从容决断*
 ```
 
 ---
