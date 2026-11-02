@@ -1,12 +1,12 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "get-more-perspectives-skill",
+  "name": "get-more-perspectives",
   "owner": {
     "name": "文森策"
   },
   "plugins": [
     {
-      "name": "get-more-perspectives-skill",
+      "name": "get-more-perspectives",
       "source": "./",
       "description": "Assemble a virtual advisory board of diverse expert personas (Operator, Skeptic, Visionary, Customer Advocate, Quant) to analyze critical decisions, uncover blindspots, and provide actionable recommendations."
     }

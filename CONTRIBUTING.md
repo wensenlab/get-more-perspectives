@@ -7,14 +7,8 @@ cross-platform behavior, or evaluation coverage are welcome.
 
 1. Fork the repository and create a focused branch.
 2. Keep changes limited to one clear purpose.
-3. Run the local checks from the repository root:
-
-```bash
-PYTHONPYCACHEPREFIX=/tmp/get-more-perspectives-pycache \
-  python3 scripts/check_pipeline.py . --json
-python3 scripts/run_evals.py
-```
-4. Update documentation and evaluation cases when behavior changes.
+3. Ensure all persona definitions, workflows, and prompts strictly adhere to the Agent Skills standard (`SKILL.md`).
+4. Validate that Markdown formatting is clean, with valid links and no broken references.
 5. Open a pull request that explains the problem, the change, and the checks
    performed.
 

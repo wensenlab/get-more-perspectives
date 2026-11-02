@@ -1,5 +1,5 @@
 ---
-name: get-more-perspectives-skill
+name: get-more-perspectives
 description: >-
   召集由执行者、质疑者、远见者、用户代言人、财务专家组成的虚拟顾问团。适用于面临重大抉择、二选一纠结（如选Offer、技术架构重构、产品定价调整、创业业务转型）、需要专家挑刺与事前排雷时，提供多角度独立审视、观点张力矩阵与止损红线行动方案。
   Assemble a virtual advisory board (Operator, Skeptic, Visionary, Customer Advocate, Quant) to stress-test decisions, uncover hidden blindspots, map tension trade-offs, and synthesize actionable next steps with kill criteria.
@@ -8,7 +8,7 @@ metadata:
   author: 文森策
   brand: WenSenLab
   version: 2.0.0
-  updated: 2026-09-03
+  updated: 2026-11-02
 ---
 
 # 🏛️ get-more-perspectives-skill — 虚拟顾问团多视角决策洞察 (WenSenLab · 文森策)

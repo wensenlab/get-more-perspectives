@@ -67,7 +67,7 @@
 
 ### 2. 本地 Agent / IDE 环境 (Claude Code, Cursor, Windsurf, Antigravity)
 放置于 Agent 全局或项目的 skills 目录下即可自动识别：
-- 全局路径：`~/.agents/skills/get-more-perspectives-skill`
+- 全局路径：`~/.agents/skills/get-more-perspectives`
 
 ### 3. 任何网页端 AI (ChatGPT, Claude, Kimi, 豆包等)
 直接将 `SKILL.md` 的内容作为自定义指令 (System Prompt) 或开篇提示词发送给 AI 即可开始使用。
@@ -87,8 +87,11 @@ get-more-perspectives-skill/
 │   ├── synthesis-frameworks.md       # 单双向门分类、张力矩阵与事前失败推演方法论
 │   └── domain-recipes.md             # 职场、技术、定价、创业等 4 大高频场景决策配方
 └── assets/
+    ├── advisor-personas.json         # 顾问画像机器可读 JSON 配置
+    ├── decision-matrix-schema.json   # 决策矩阵 JSON Schema 规范
     ├── perspectives-template.md      # 标准多视角输出 Markdown 模版
-    └── get-more-perspectives-card-blue-3x4-20261102.png # 3:4 蓝调视觉架构卡片
+    ├── get-more-perspectives-card-blue-3x4-20261102.html # 3:4 蓝调视觉架构卡片源码
+    └── get-more-perspectives-card-blue-3x4-20261102.png  # 3:4 蓝调视觉架构卡片预览
 ```
 
 ---
